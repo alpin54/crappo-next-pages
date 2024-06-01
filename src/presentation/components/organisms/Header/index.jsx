@@ -97,16 +97,12 @@ const Header = (props) => {
 							}
 							className={style.logoLink}
 						>
-							<Image
-								src={
-									props.data?.brand.logo !== undefined
-										? props.data?.brand.logo
-										: ""
-								}
-								alt={props.data?.brand.name}
+							<img
+								src={props.data?.brand.logo ? props.data?.brand.logo : "/"}
+								alt={props.data?.brand.name ? props.data?.brand.name : "logo"}
 								className={style.logoImg}
-								width="134"
-								height="40"
+								width={134}
+								height={40}
 							/>
 						</Link>
 					</div>
@@ -117,7 +113,7 @@ const Header = (props) => {
 								{props.data?.main_menu.map((val, idx) => (
 									<li className={style.item} key={`hm-${idx}`}>
 										<Link
-											href={val.to}
+											href={val.to.replace("#", "")}
 											className={
 												menu === val.text.toLowerCase()
 													? `${style.link} ${style.active}`
@@ -138,7 +134,7 @@ const Header = (props) => {
 									</Button>
 								</div>
 							))}
-							<Button variant="accent">{total}</Button>
+							{/* <Button variant="accent">{total}</Button> */}
 						</div>
 						<button
 							type="button"

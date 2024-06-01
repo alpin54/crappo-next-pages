@@ -21,12 +21,12 @@ const Footer = (props) => {
 							}
 							className={style.logoLink}
 						>
-							<Image
-								src={props.data?.brand.logo}
-								alt={props.data?.brand.name}
+							<img
+								src={props.data?.brand.logo ? props.data?.brand.logo : "/"}
+								alt={props.data?.brand.name ? props.data?.brand.name : "logo"}
 								className={style.logoImg}
-								width="134"
-								height="40"
+								width={134}
+								height={40}
 							/>
 						</Link>
 					</div>
@@ -47,12 +47,12 @@ const Footer = (props) => {
 											className={style.paymentLink}
 											target="blank"
 										>
-											<Image
+											<img
 												className={style.paymentIcon}
 												src={val.icon}
 												alt={val.name}
-												width="40"
-												height="40"
+												width={40}
+												height={40}
 											/>
 										</a>
 									</li>
@@ -70,12 +70,12 @@ const Footer = (props) => {
 									href={val.to}
 									className={`${style.sosmedLink} ${val.name.toLowerCase()}`}
 								>
-									<Image
+									<img
 										className={style.sosmedIcon}
 										src={val.icon}
 										alt={val.name}
-										width="24"
-										height="24"
+										width={24}
+										height={24}
 									/>
 								</Link>
 							</li>

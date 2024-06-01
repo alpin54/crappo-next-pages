@@ -4,7 +4,7 @@ import ENDPOINT from "infrastructure/api/endPoint";
 const handleList = () => {
 	const { ready, data, error } = httpRequest.firstLoad({
 		method: "get",
-		url: ENDPOINT.INVEST_SMART,
+		url: ENDPOINT.PROFIT_INVESTMENTS,
 	});
 
 	return {
@@ -14,8 +14,8 @@ const handleList = () => {
 	};
 };
 
-const investSmartModel = {
+const profitInvestmentsModel = {
 	list: handleList,
 };
 
-export default investSmartModel;
+export default profitInvestmentsModel;

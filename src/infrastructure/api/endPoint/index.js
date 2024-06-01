@@ -1,4 +1,5 @@
 const AXTB_URL = "https://x-api.alpha-x.id";
+const FAKE_API = "https://fakestoreapi.com";
 
 const ENDPOINT = {
 	HEADER: `${AXTB_URL}/v1/crappo/header`,
@@ -12,6 +13,9 @@ const ENDPOINT = {
 	PROFIT_INVESTMENTS: `${AXTB_URL}/v1/crappo/profit-investments`,
 	SUBSCRIBE: `${AXTB_URL}/v1/crappo/subscribe`,
 	FOOTER: `${AXTB_URL}/v1/crappo/footer`,
+
+	// -- Fake API
+	PRODUCTS: `${FAKE_API}/products`,
 };
 
 export default ENDPOINT;

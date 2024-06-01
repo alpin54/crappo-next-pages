@@ -5,39 +5,54 @@ import { useEffect, useState } from "react";
 import httpRequest from "@api/httpRequest";
 import ENDPOINT from "@api/endPoint";
 
+// -- model
+// import statisticsModel from "@models/statistics";
+
 // -- organisms
 import Statistics from "@organisms/Statistics";
 
 const StatisticsWidget = () => {
-	// state
-	const [data, setData] = useState({
-		title: "",
-		image: "",
-		description: "",
-		button: {
-			to: "",
-			text: "",
-		},
-	});
+	// const { ready, data, error } = statisticsModel.list();
+	const [callStatisticsData, setCallStatisticsData] = useState(false);
+	const [statisticsdata, setStatisticsData] = useState(null);
 
-	// call API
-	const {
-		ready: getReady,
-		data: getData,
-		error: getError,
-	} = httpRequest({
-		url: ENDPOINT.STATISTICS,
-		method: "get",
-	});
+	const handleScroll = () => {
+		const scrollTop =
+			window.pageYOffset ||
+			document.documentElement.scrollTop ||
+			document.body.scrollTop;
+		const numbers = document.getElementById("numbers");
+		const startScroll = numbers.offsetTop + numbers.clientHeight / 2;
 
-	// use effect
-	useEffect(() => {
-		if (getData?.data) {
-			setData(getData?.data);
+		if (scrollTop > startScroll && !callStatisticsData) {
+			setCallStatisticsData(true);
 		}
-	}, [getData]);
+	};
 
-	return <Statistics ready={getReady} data={data} error={getError} />;
+	const handleStatisticsData = async () => {
+		const { ready, data, error } = await httpRequest({
+			method: "get",
+			url: ENDPOINT.STATISTICS,
+		});
+		setStatisticsData(data?.data);
+	};
+
+	useEffect(() => {
+		if (callStatisticsData) {
+			handleStatisticsData();
+		}
+	}, [callStatisticsData]);
+
+	useEffect(() => {
+		window.addEventListener("scroll", handleScroll);
+		// cleaning even listener on component unmount
+		return () => {
+			window.addEventListener("scroll", handleScroll);
+		};
+	}, []);
+
+	return <Statistics data={statisticsdata} />;
+	// return <Statistics ready={ready} data={data?.data} error={error} />;
 };
 
 export default StatisticsWidget;

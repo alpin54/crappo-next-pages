@@ -5,39 +5,56 @@ import { useEffect, useState } from "react";
 import httpRequest from "@api/httpRequest";
 import ENDPOINT from "@api/endPoint";
 
+// -- model
+// import profitInvestmentsModel from "@models/profitInvestments";
+
 // -- organisms
 import ProfitInvestments from "@organisms/ProfitInvestments";
 
 const ProfitInvestmentsWidget = () => {
-	// state
-	const [data, setData] = useState({
-		title: "",
-		image: "",
-		description: "",
-		button: {
-			to: "",
-			text: "",
-		},
-	});
+	// const { ready, data, error } = profitInvestmentsModel.list();
+	const [callProfitInvestmentsData, setCallProfitInvestmentsData] =
+		useState(false);
+	const [profitInvestmentsdata, setProfitInvestmentsData] = useState(null);
 
-	// call API
-	const {
-		ready: getReady,
-		data: getData,
-		error: getError,
-	} = httpRequest({
-		url: ENDPOINT.PROFIT_INVESTMENTS,
-		method: "get",
-	});
+	const handleScroll = () => {
+		const scrollTop =
+			window.pageYOffset ||
+			document.documentElement.scrollTop ||
+			document.body.scrollTop;
+		const whyCrappo = document.getElementById("why-crappo");
+		const startScroll = whyCrappo.offsetTop + whyCrappo.clientHeight / 2;
 
-	// use effect
-	useEffect(() => {
-		if (getData?.data) {
-			setData(getData?.data);
+		if (scrollTop > startScroll && !callProfitInvestmentsData) {
+			setCallProfitInvestmentsData(true);
 		}
-	}, [getData]);
+	};
 
-	return <ProfitInvestments ready={getReady} data={data} error={getError} />;
+	const handleProfitInvestmentsData = async () => {
+		const { ready, data, error } = await httpRequest({
+			method: "get",
+			url: ENDPOINT.PROFIT_INVESTMENTS,
+		});
+		setProfitInvestmentsData(data?.data);
+	};
+
+	useEffect(() => {
+		if (callProfitInvestmentsData) {
+			handleProfitInvestmentsData();
+		}
+	}, [callProfitInvestmentsData]);
+
+	useEffect(() => {
+		window.addEventListener("scroll", handleScroll);
+		// cleaning even listener on component unmount
+		return () => {
+			window.addEventListener("scroll", handleScroll);
+		};
+	}, []);
+
+	return <ProfitInvestments data={profitInvestmentsdata} />;
+
+	// return <ProfitInvestments ready={ready} data={data?.data} error={error} />;
 };
 
 export default ProfitInvestmentsWidget;

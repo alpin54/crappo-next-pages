@@ -1,3 +1,6 @@
+// -- core
+import Image from "next/image";
+
 // -- style
 import style from "./style.module.scss";
 
@@ -20,11 +23,13 @@ const WhyCrappo = (props) => {
 	// }
 
 	return (
-		<section className={style.crappo}>
+		<section className={style.crappo} id="why-crappo">
 			<div className={style.container}>
 				<div className={style.inner}>
 					<div className={style.img}>
 						<img
+							width={704}
+							height={568}
 							className={style.el}
 							src={props.data.image}
 							alt={props.data.title}

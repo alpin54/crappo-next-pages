@@ -16,7 +16,7 @@ const NotFoundSection = () => {
 			<div className="container">
 				<div className={style.inner}>
 					<div className={style.img}>
-						<Image src={imageBg} alt="not found" />
+						<img src={imageBg} alt="not found" />
 					</div>
 					<div className={style.text}>
 						<h2 className={style.title}>Oops! Page is unavailable :(</h2>

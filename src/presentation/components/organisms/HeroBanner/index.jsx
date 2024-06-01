@@ -81,13 +81,13 @@ const HeroBanner = (props) => {
 
 	if (props.data.length === 1) {
 		return (
-			<section className={classNameSingle}>
+			<section className={classNameSingle} id="hero-banner">
 				{props.data.map((val, idx) => {
 					return (
 						<div className={style.item} key={`hb-${idx}`}>
 							<div className={style.middleAlign}>
 								<div className="container">
-									<HeroBannerItem data={val} />
+									<HeroBannerItem {...val} />
 								</div>
 							</div>
 						</div>
@@ -98,14 +98,14 @@ const HeroBanner = (props) => {
 	}
 
 	return (
-		<section className={classNameSingle}>
+		<section className={classNameSingle} id="hero-banner">
 			<Slider {...settings}>
 				{props.data.map((val, idx) => {
 					return (
 						<div className={style.item} key={`hb-${idx}`}>
 							<div className={style.middleAlign}>
 								<div className="container">
-									<HeroBannerItem data={val} />
+									<HeroBannerItem {...val} />
 								</div>
 							</div>
 						</div>

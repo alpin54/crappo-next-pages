@@ -1,17 +1,17 @@
 //- core
-// import { useEffect } from "react";
-// import { useLocation } from "react-router-dom";
+import { useEffect } from "react";
+import { usePathname } from "next/navigation";
 
 // -- widgets
 import HeaderWidget from "@widgets/HeaderWidget";
 import FooterWidget from "@widgets/FooterWidget";
 
 const Default = ({ activeMenu, children }) => {
-	// const { pathname } = useLocation();
+	const { pathname } = usePathname();
 
-	// useEffect(() => {
-	// 	window.scrollTo(0, 0);
-	// }, [pathname]);
+	useEffect(() => {
+		window.scrollTo(0, 0);
+	}, [pathname]);
 
 	return (
 		<>

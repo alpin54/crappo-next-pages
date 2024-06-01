@@ -6,19 +6,19 @@ import FormControl from "@atoms/FormControl";
 import Button from "@atoms/Button";
 
 const Calculate = (props) => {
-	if (props.error !== null) {
-		return <h2>{props.error.message}</h2>;
-	}
+	// if (props.error !== null) {
+	// 	return <h2>{props.error.message}</h2>;
+	// }
 
-	if (!props.ready) {
-		return (
-			<section className="sc-placeholder">
-				<div className="container">
-					<h2>Data sedang dimuat!</h2>
-				</div>
-			</section>
-		);
-	}
+	// if (!props.ready) {
+	// 	return (
+	// 		<section className="sc-placeholder">
+	// 			<div className="container">
+	// 				<h2>Data sedang dimuat!</h2>
+	// 			</div>
+	// 		</section>
+	// 	);
+	// }
 
 	return (
 		<section className={style.calculate}>

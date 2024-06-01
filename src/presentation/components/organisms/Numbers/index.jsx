@@ -20,13 +20,13 @@ const Numbers = (props) => {
 	// }
 
 	return (
-		<section className={style.numbers}>
+		<section className={style.numbers} id="numbers">
 			<div className="container">
 				<div className={style.list}>
 					{props.data.map((val, idx) => {
 						return (
 							<div className={style.item} key={`f-${idx}`}>
-								<NumbersItem data={val} />
+								<NumbersItem {...val} />
 							</div>
 						);
 					})}

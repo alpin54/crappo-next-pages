@@ -8,11 +8,11 @@ const NumbersItem = (props) => {
 	return (
 		<div className={style.item}>
 			<div className={style.icon}>
-				<SystemIcon name={props.data.icon_font} />
+				<SystemIcon name={props.icon_font} />
 			</div>
 			<div className={style.text}>
-				<h4 className={style.title}>{props.data.title}</h4>
-				<p className={style.desc}>{props.data.description}</p>
+				<h4 className={style.title}>{props.title}</h4>
+				<p className={style.desc}>{props.description}</p>
 			</div>
 		</div>
 	);

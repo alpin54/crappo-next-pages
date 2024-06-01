@@ -10,22 +10,24 @@ import Button from "@atoms/Button";
 const CryptoItem = (props) => {
 	return (
 		<div className={style.box}>
-			<Link className={style.link} href={props.data.button.to}></Link>
+			<Link className={style.link} href={props.button.to}></Link>
 			<div className={style.img}>
-				<Image
+				<img
+					width={80}
+					height={80}
 					className={style.el}
-					src={props.data.icon}
-					alt={props.data.name}
+					src={props.icon !== undefined ? props.icon : ""}
+					alt={props.name}
 				/>
 			</div>
 			<div className={style.text}>
 				<h3 className={style.title}>
-					{props.data.name} <span>{props.data.code}</span>
+					{props.name} <span>{props.code}</span>
 				</h3>
-				<p className={style.desc}>{props.data.description}</p>
+				<p className={style.desc}>{props.description}</p>
 				<div className={style.btn}>
 					<Button category="rounded" icon="chevron-right">
-						{props.data.button.text}
+						{props.button.text}
 					</Button>
 				</div>
 			</div>

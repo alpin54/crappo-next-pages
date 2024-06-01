@@ -11,29 +11,29 @@ const HeroBannerItem = (props) => {
 	return (
 		<div className={style.banner}>
 			<div className={style.img}>
-				<Image
-					width="600"
-					height="600"
+				<img
+					width={600}
+					height={600}
 					className={style.el}
-					src={props.data.img}
-					alt={props.data.title}
+					src={props.img ? props.img : ""}
+					alt={props.title ? props.title : ""}
 				/>
 			</div>
 			<div className={style.text}>
 				<div className={style.sale}>
-					<p className={style.saleTitle}>{props.data.sale.title}</p>
-					<p className={style.saleDesc}>{props.data.sale.desc}</p>
+					<p className={style.saleTitle}>{props.sale.title}</p>
+					<p className={style.saleDesc}>{props.sale.desc}</p>
 				</div>
-				<h2 className={style.title}>{props.data.title}</h2>
-				<p className={style.desc}>{props.data.desc}</p>
+				<h2 className={style.title}>{props.title}</h2>
+				<p className={style.desc}>{props.desc}</p>
 				<div className={style.btn}>
 					<Button
 						variant="accent"
 						category="icon"
-						href={props.data.btn.to}
+						href={props.btn.to}
 						icon="chevron-right"
 					>
-						{props.data.btn.text}
+						{props.btn.text}
 					</Button>
 				</div>
 			</div>
