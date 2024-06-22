@@ -4,11 +4,23 @@ import Link from "next/link";
 // -- tempaltes
 import Default from "@templates/Default";
 
+// -- api
+import httpRequest from "@api/httpRequest";
+import ENDPOINT from "@api/endPoint";
+
 // -- states
 import useStateHeader from "core/states/header";
 
-const Products = (props) => {
-	const { product } = props;
+const Products = () => {
+	const {
+		ready,
+		data: productData,
+		error,
+	} = httpRequest.firstLoad({
+		method: "get",
+		url: ENDPOINT.PRODUCTS,
+	});
+
 	const { setMenu } = useStateHeader();
 
 	useState(() => {
@@ -20,8 +32,8 @@ const Products = (props) => {
 			<div className="product">
 				<div className="container">
 					<div className="product__list">
-						{product !== null &&
-							product.map((val, idx) => (
+						{productData !== null &&
+							productData.map((val, idx) => (
 								<div className="product__item" key={idx}>
 									<div className="product__box">
 										<Link
