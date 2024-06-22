@@ -79,7 +79,10 @@
 	}
 }
 .form {
-	font-size: 0;
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	justify-content: flex-start;
 	margin-bottom: 96px;
 	@include large {
 		margin-bottom: 80px;
@@ -91,16 +94,15 @@
 		margin-bottom: 48px;
 	}
 	@include x-small {
+		flex-wrap: wrap;
 		margin-bottom: 32px;
 	}
 }
 .row {
-	display: inline-block;
-	vertical-align: middle;
 	margin-right: 48px;
-	width: 200px;
+	flex: 0 0 200px;
 	@include medium {
-		width: 40%;
+		flex: 0 0 40%;
 		margin-right: 0;
 		margin-bottom: 32px;
 	}
@@ -108,30 +110,29 @@
 		margin-bottom: 24px;
 	}
 	@include x-small {
-		width: 100%;
+		flex: 0 0 100%;
 	}
 	&:first-child {
-		width: 400px;
+		flex: 0 0 400px;
 		@include medium {
-			width: 60%;
+			flex: 0 0 60%;
 			padding-right: 32px;
 		}
 		@include small {
 			padding-right: 24px;
 		}
 		@include x-small {
-			width: 100%;
+			flex: 0 0 100%;
 			padding-right: 0;
 		}
 	}
 	&:last-child {
-		width: auto;
+		flex: auto;
 		margin-right: 0;
 		@include medium {
-			width: 100%;
+			flex: 0 0 100%;
 			margin-bottom: 0;
-			.button {
-				display: block;
+			button {
 				width: 100%;
 			}
 		}

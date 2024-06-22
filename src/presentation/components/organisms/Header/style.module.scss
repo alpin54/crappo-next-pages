@@ -35,13 +35,9 @@
 	}
 }
 .logo {
-	float: left;
-	height: 48px;
-	margin-right: 120px;
-	@include medium {
-		height: 40px;
-		margin-right: 24px;
-	}
+	display: flex;
+	align-items: center;
+	margin-right: auto;
 	&Link {
 		display: inline-block;
 	}
@@ -60,6 +56,7 @@
 	}
 }
 .inner {
+	display: flex;
 	position: relative;
 	@include clearfix;
 	&::before {
@@ -113,13 +110,12 @@
 	}
 }
 .nav {
-	float: right;
+	display: flex;
+	align-items: center;
 	@include clearfix;
 }
 .menu {
-	float: left;
 	@include medium {
-		float: none;
 		@include scroll("y", "touch", "show");
 		position: fixed;
 		top: 72px;
@@ -147,34 +143,25 @@
 	}
 }
 .list {
+	display: flex;
+	align-items: center;
 	list-style: none;
 	padding: 0;
 	margin: 0;
 	@include clearfix;
+	@include medium {
+		flex-direction: column;
+		align-items: flex-start;
+	}
 }
 .item {
-	float: left;
 	margin-right: 32px;
 	@include medium {
-		float: none;
 		margin-right: 0;
 		display: block;
 		padding-top: 12px;
 		padding-bottom: 12px;
 	}
-	// &:last-child {
-	// 	margin-right: 0;
-	// 	margin-left: 32px;
-	// 	padding-right: 24px;
-	// 	border-right: solid 1px color(grey, 4);
-	// 	font-weight: fw(medium);
-	// 	@include medium {
-	// 		margin: 0;
-	// 		padding-right: 0;
-	// 		border-right: 0;
-	// 		font-weight: fw(regular);
-	// 	}
-	// }
 }
 .link {
 	display: block;
@@ -214,11 +201,9 @@
 	}
 }
 .auth {
-	float: right;
 	display: flex;
 	margin-left: 32px;
 	@include medium {
-		float: left;
 		margin-left: 0;
 		margin-right: 12px;
 	}
@@ -294,7 +279,6 @@
 	display: none;
 	@include medium {
 		display: block;
-		float: right;
 		position: relative;
 		border: 0;
 		outline: 0;

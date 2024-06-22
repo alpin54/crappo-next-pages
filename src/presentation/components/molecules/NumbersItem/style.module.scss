@@ -1,12 +1,13 @@
 @import "core/styles/_assets.scss";
 
 .item {
-	font-size: 0;
+	display: flex;
+	align-items: center;
 }
 .icon {
-	position: relative;
-	display: inline-block;
-	vertical-align: middle;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	width: 80px;
 	height: 80px;
 	border-radius: 50%;
@@ -20,20 +21,11 @@
 		margin-right: 16px;
 	}
 	i {
-		position: absolute;
-		left: 50%;
-		top: 50%;
-		z-index: zi(features-icon);
-		transform: translate(-50%, -50%);
 		@include font-size(h2);
 		@include large {
 			@include font-size(h3);
 		}
 	}
-}
-.text {
-	display: inline-block;
-	vertical-align: middle;
 }
 .title {
 	@include font-size(h2);

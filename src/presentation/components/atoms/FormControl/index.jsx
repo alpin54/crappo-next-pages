@@ -10,7 +10,7 @@ const FormControl = (props) => {
 				{list.map((val, idx) => {
 					return (
 						<option value={val.value} key={`op-${idx}`}>
-							{val.text}
+							{val.unit}
 						</option>
 					);
 				})}

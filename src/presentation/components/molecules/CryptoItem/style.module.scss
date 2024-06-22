@@ -73,9 +73,13 @@
 		display: block;
 		height: 80px;
 		@include medium {
+			width: auto;
 			height: 64px;
 		}
 	}
+}
+.text {
+	white-space: normal;
 }
 .title {
 	display: inline-block;

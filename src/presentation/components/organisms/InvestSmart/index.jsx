@@ -36,15 +36,11 @@ const InvestSmart = (props) => {
 						))}
 					</div>
 					<div className={style.text}>
-						<div className={style.wrapper}>
-							<h2 className={style.textTitle}>{props.data?.section.title}</h2>
-							<p className={style.textDesc}>
-								{props.data?.section.description}
-							</p>
-							<Button variant="accent" href={props.data?.section.button.to}>
-								{props.data?.section.button.text}
-							</Button>
-						</div>
+						<h2 className={style.textTitle}>{props.data?.section.title}</h2>
+						<p className={style.textDesc}>{props.data?.section.description}</p>
+						<Button variant="accent" href={props.data?.section.button.to}>
+							{props.data?.section.button.text}
+						</Button>
 					</div>
 				</div>
 			</div>

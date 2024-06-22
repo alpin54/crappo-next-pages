@@ -24,7 +24,7 @@ const WhyCrappo = (props) => {
 
 	return (
 		<section className={style.crappo} id="why-crappo">
-			<div className={style.container}>
+			<div className="container">
 				<div className={style.inner}>
 					<div className={style.img}>
 						<img

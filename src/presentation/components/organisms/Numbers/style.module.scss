@@ -17,6 +17,8 @@
 	}
 }
 .list {
+	display: flex;
+	align-items: center;
 	margin-left: -48px;
 	margin-right: -48px;
 	@include clearfix;
@@ -25,7 +27,6 @@
 		margin-right: -16px;
 	}
 	@include medium {
-		font-size: 0;
 		margin-left: -32px;
 		margin-right: -32px;
 		padding-left: 32px;
@@ -43,8 +44,7 @@
 	}
 }
 .item {
-	float: left;
-	width: 33.3333333%;
+	flex: 0 0 33.3333333%;
 	padding: 0 48px;
 	&:last-child {
 		@include x-small {
@@ -55,9 +55,7 @@
 		padding: 0 16px;
 	}
 	@include medium {
-		float: none;
-		width: auto;
-		display: inline-block;
+		flex: auto;
 		padding: 0 32px 0 0;
 	}
 	@include small {

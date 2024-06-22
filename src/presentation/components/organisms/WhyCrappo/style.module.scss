@@ -21,14 +21,14 @@
 	}
 }
 .inner {
-	display: table;
+	display: flex;
+	align-items: center;
 	@include small {
+		flex-direction: column;
 		display: block;
 	}
 }
 .img {
-	display: table-cell;
-	vertical-align: middle;
 	padding-right: 152px;
 	@include large {
 		padding-right: 120px;
@@ -37,7 +37,6 @@
 		padding-right: 48px;
 	}
 	@include small {
-		display: block;
 		padding-right: 0;
 		margin-bottom: 24px;
 	}
@@ -48,15 +47,13 @@
 	}
 }
 .text {
-	display: table-cell;
-	vertical-align: middle;
-	width: 40%;
+	flex: 0 0 40%;
 	@include medium {
-		width: 50%;
+		flex: 0 0 50%;
 	}
 	@include small {
 		display: block;
-		width: 100%;
+		flex: 0 0 100%;
 	}
 }
 .title {

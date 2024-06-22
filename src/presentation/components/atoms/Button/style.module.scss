@@ -4,7 +4,7 @@
 	display: inline-block;
 	vertical-align: middle;
 	min-width: 145px;
-	padding: 14px 32px;
+	padding: 15px 32px;
 	border-radius: 32px;
 	text-decoration: none;
 	outline: 0;
@@ -17,6 +17,9 @@
 	@include remove-tap-highlight;
 	transition: all 0.3s ease;
 	font-weight: fw(medium);
+	@include medium {
+		padding: 11px 24px;
+	}
 	&Icon {
 		i {
 			display: inline-block;
